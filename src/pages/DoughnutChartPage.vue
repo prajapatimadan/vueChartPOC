@@ -6,7 +6,7 @@
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
             <p class="card-text">
-              <radar-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></radar-chart>
+              <doughnut-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></doughnut-chart>
             </p>
           </div>
         </div>
@@ -16,14 +16,14 @@
 </template>
 
 <script>
-import RadarChart from '@/components/RadarChart';
+import DoughnutChart from '@/components/DoughnutChart';
 
 export default {
-  name: 'RadarChartPage',
-  components:{RadarChart},
+  name: 'DoughnutChartPage',
+  components:{DoughnutChart},
     data () {
       return {
-        title:"Radar Chart",
+        title:"Doughnut Chart",
         datacollection: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [

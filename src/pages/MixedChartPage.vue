@@ -12,36 +12,36 @@
         </div>
     </div>
   </div>
-  <div class="row" v-if="errors">{{errors}}</div>
   </div>
 </template>
 
 <script>
 
 import BarChart from '@/components/BarChart';
-import {HTTP} from '@/http-common';
 
 export default {
-  name: 'BarChartPage',
+  name: 'MixedChartPage',
   components: {BarChart},
+  type: 'bar',
   data () {
     return {
-      title: "Bar Chart",
-      datacollection:[],
-      errors:[]
+      datacollection:{
+      datasets: [
+        {
+          label: 'GitHub Commits',
+          backgroundColor: '#f87979',
+          data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
+        },
+        {
+            label: 'GitHub Chekout',
+            backgroundColor: '#fCC550',
+            data: [ 12, 39, 10, 40, 20, 40, 39, 20, 12, 11, 80, 40],
+            type: 'line'
+          }
+      ],
+      labels:['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    }
     };
-  },
-  methods:{
-    getData:function(){
-      HTTP.get('gitdata.json').then(response => {
-      this.datacollection = response.data
-    }).catch(e => {
-      this.errors.push(e)
-    })
-  }
-  },
-  created: function(){
-        this.getData()
   }
 };
 </script>

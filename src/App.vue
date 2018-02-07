@@ -45,7 +45,12 @@ export default {
   },
   data(){
     return {
-        chartItems:[{title:'Bar',url:'/barchart'},{title:'Line',url:'/linechart'},{title:'Pie',url:'/piechart'},{title:'Radar',url:'/radarchart'}],
+        chartItems:[{title:'Bar',url:'/barchart'},{title:'Line',url:'/linechart'},{title:'Pie',url:'/piechart'},{title:'Radar',url:'/radarchart'}
+        ,{title:'Polar',url:'/polarchart'}
+        ,{title:'Bubble',url:'/bubblechart'}
+        ,{title:'Doughnut',url:'/doughnutchart'}
+        ,{title:'Scatter',url:'/scatterchart'}
+        ,{title:'Mixed',url:'/mixedchart'}],
         openPage:(value => {
           console.log('test'+value);
         }) 

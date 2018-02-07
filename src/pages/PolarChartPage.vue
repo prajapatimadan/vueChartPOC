@@ -6,7 +6,7 @@
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
             <p class="card-text">
-              <radar-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></radar-chart>
+              <polar-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></polar-chart>
             </p>
           </div>
         </div>
@@ -16,14 +16,14 @@
 </template>
 
 <script>
-import RadarChart from '@/components/RadarChart';
+import PolarChart from '@/components/PolarChart';
 
 export default {
-  name: 'RadarChartPage',
-  components:{RadarChart},
+  name: 'PolarChartPage',
+  components:{PolarChart},
     data () {
       return {
-        title:"Radar Chart",
+        title:"Polar Chart",
         datacollection: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [
