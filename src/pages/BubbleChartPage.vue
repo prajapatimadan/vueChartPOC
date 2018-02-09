@@ -20,11 +20,11 @@ import BubbleChart from '@/components/BubbleChart';
 
 export default {
   name: 'BubbleChartPage',
-  components:{BubbleChart},
-    data () {
-      return {
-        title:"Bubble Chart",
-        datacollection: {
+  components: { BubbleChart },
+  data() {
+    return {
+      title: "Bubble Chart",
+      datacollection: {
         datasets: [
           {
             label: 'Product 1',
@@ -53,7 +53,7 @@ export default {
             label: 'Product 2',
             backgroundColor: 'rgba(255,99,132,0.2)',
             hoverBackgroundColor: 'rgba(255,99,100,0.5)',
-            backgroundColor: 'rgba(255,99,132,0.5)',
+            hoverBorderColor: 'rgba(255,99,132,0.5)',
             hoverBorderWidth: 5,
             hoverRadius: 5,
             data: [{
@@ -74,8 +74,8 @@ export default {
           }
         ]
       }
-      }
-    }
+    };
+  }
 };
 </script>
 

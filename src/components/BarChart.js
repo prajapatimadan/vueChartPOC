@@ -1,11 +1,12 @@
 import { Bar } from 'vue-chartjs';
- 
+
 export default {
   name: 'BarChart',
   extends: Bar,
   props: ['data', 'options'],
-  mounted () {
+  mounted() {
     // Overwriting base render method with actual data.
-    this.renderChart(this.data,this.options);
+    console.log("----- ",this.data);
+    this.renderChart(this.data, this.options);
   }
 };

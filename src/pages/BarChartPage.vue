@@ -5,7 +5,7 @@
       <div class="card">
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
-            <p class="card-text">
+            <p class="card-text" v-if="datacollection">{{datacollection}}
               <bar-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></bar-chart>
             </p>
           </div>
@@ -23,26 +23,31 @@ import {HTTP} from '@/http-common';
 
 export default {
   name: 'BarChartPage',
-  components: {BarChart},
-  data () {
+  components: { BarChart },
+  data() {
     return {
       title: "Bar Chart",
-      datacollection:[],
-      errors:[]
+      datacollection: {},
+      errors: []
     };
   },
-  methods:{
-    getData:function(){
+  methods: {
+    getData() {
+      var self = this;
       HTTP.get('gitdata.json').then(response => {
-      this.datacollection = response.data
-    }).catch(e => {
-      this.errors.push(e)
-    })
-  }
+        //(this.datacollection = response.data).bind(this);
+        self.datacollection = JSON.parse(JSON.stringify(response.data));
+      })
+      .catch(e => {
+        (this.errors).bind(this).push(e);
+      });
+    }
   },
-  created: function(){
-        this.getData()
+  created() {
+    this.getData();
+    console.log(this.datacollection);
   }
+
 };
 </script>
 

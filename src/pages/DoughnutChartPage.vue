@@ -20,11 +20,11 @@ import DoughnutChart from '@/components/DoughnutChart';
 
 export default {
   name: 'DoughnutChartPage',
-  components:{DoughnutChart},
-    data () {
-      return {
-        title:"Doughnut Chart",
-        datacollection: {
+  components: { DoughnutChart },
+  data() {
+    return {
+      title: "Doughnut Chart",
+      datacollection: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [
           {
@@ -45,12 +45,12 @@ export default {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [39, 10, 40,40, 20, 12, 39, 20, 12, 11, 80, 40]
+            data: [39, 10, 40, 40, 20, 12, 39, 20, 12, 11, 80, 40]
           }
         ]
       }
-      }
-    }
+    };
+  }
 };
 </script>
 

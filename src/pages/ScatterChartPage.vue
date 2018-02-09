@@ -20,11 +20,11 @@ import ScatterChart from '@/components/ScatterChart';
 
 export default {
   name: 'ScatterChartPage',
-  components:{ScatterChart},
-    data () {
-      return {
-        title:"Scatter Chart",
-        datacollection: {
+  components: { ScatterChart },
+  data() {
+    return {
+      title: "Scatter Chart",
+      datacollection: {
         datasets: [
           {
             label: 'Product 1',
@@ -50,7 +50,7 @@ export default {
             label: 'Product 2',
             backgroundColor: 'rgba(255,99,132,0.2)',
             hoverBackgroundColor: 'rgba(255,99,100,0.5)',
-            backgroundColor: 'rgba(255,99,132,0.5)',
+            hoverBorderColor: 'rgba(255,99,132,0.5)',
             hoverBorderWidth: 5,
             hoverRadius: 5,
             data: [{
@@ -68,8 +68,8 @@ export default {
           }
         ]
       }
-      }
-    }
+    };
+  }
 };
 </script>
 

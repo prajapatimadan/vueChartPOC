@@ -20,16 +20,16 @@ import PieChart from '@/components/PieChart';
 
 export default {
   name: 'PieChartPage',
-  components:{PieChart},
-    data () {
-      return {
-        title:"Pie Chart",
-        datacollection: {
+  components: { PieChart },
+  data() {
+    return {
+      title: "Pie Chart",
+      datacollection: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [
           {
             label: 'GitHub Commits',
-             backgroundColor: [
+            backgroundColor: [
               '#f87979',
               '#41B883',
               '#E46651',
@@ -47,8 +47,8 @@ export default {
           }
         ]
       }
-      }
-    }
+    };
+  }
 };
 </script>
 

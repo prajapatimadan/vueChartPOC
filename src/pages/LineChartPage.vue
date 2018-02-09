@@ -20,11 +20,11 @@ import LineChart from '@/components/LineChart';
 
 export default {
   name: 'LineChartPage',
-  components:{LineChart},
-    data () {
-      return {
-        title: "Line Chart",
-        datacollection: {
+  components: { LineChart },
+  data() {
+    return {
+      title: "Line Chart",
+      datacollection: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [
           {
@@ -34,8 +34,8 @@ export default {
           }
         ]
       }
-      }
-    }
+    };
+  }
 };
 </script>
 
