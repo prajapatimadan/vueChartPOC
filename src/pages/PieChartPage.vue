@@ -6,7 +6,7 @@
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
             <p class="card-text">
-              <pie-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></pie-chart>
+              <pie-chart :data="datacollection" :options="{responsive: true, maintainAspectRatio: false}"></pie-chart>
             </p>
           </div>
         </div>

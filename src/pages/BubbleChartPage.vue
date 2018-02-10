@@ -6,7 +6,7 @@
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
             <p class="card-text">
-              <bubble-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></bubble-chart>
+              <bubble-chart :data="datacollection" :options="{responsive: true, maintainAspectRatio: false}"></bubble-chart>
             </p>
           </div>
         </div>

@@ -6,7 +6,7 @@
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
             <p class="card-text">
-              <bar-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></bar-chart>
+              <bar-chart :data="datacollection" :options="{responsive: true, maintainAspectRatio: false}"></bar-chart>
             </p>
           </div>
         </div>
@@ -25,6 +25,7 @@ export default {
   type: 'bar',
   data() {
     return {
+      title: "Mixed Chart",
       datacollection: {
         datasets: [
           {

@@ -1,18 +1,18 @@
 <template>
   <div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-md-6">
-      <div class="card">
-          <div class="card-block">
-            <h4 class="card-title">{{title}}</h4>
-            <p class="card-text" v-if="datacollection">{{datacollection}}
-              <bar-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></bar-chart>
-            </p>
+    <div class="row">
+      <div class="col-sm-6 col-md-6">
+        <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">{{title}}</h4>
+              <p class="card-text" v-if="datacollection">
+                <bar-chart :data="datacollection" :options="{responsive: true, maintainAspectRatio: false}"></bar-chart>
+              </p>
+            </div>
           </div>
-        </div>
+      </div>
     </div>
-  </div>
-  <div class="row" v-if="errors">{{errors}}</div>
+    <div class="row" v-if="errors">{{errors}}</div>
   </div>
 </template>
 
@@ -27,26 +27,35 @@ export default {
   data() {
     return {
       title: "Bar Chart",
-      datacollection: {},
-      errors: []
+      datacollection: undefined,
+      errors: undefined
     };
   },
   methods: {
     getData() {
       var self = this;
-      HTTP.get('gitdata.json').then(response => {
+      HTTP.get('gitdata.json',{
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      dataType: 'json',
+      mode: 'no-cors'
+    }).then(response => {
         //(this.datacollection = response.data).bind(this);
-        self.datacollection = JSON.parse(JSON.stringify(response.data));
+        const data = JSON.parse(JSON.stringify(response.data));
+        self.datacollection = data;
+        console.log("-------1111---- ", data.datasets[0]);
       })
       .catch(e => {
         (this.errors).bind(this).push(e);
       });
     }
   },
-  created() {
-    this.getData();
+  mounted: function () {
+      this.getData();
     console.log(this.datacollection);
-  }
+    }
 
 };
 </script>

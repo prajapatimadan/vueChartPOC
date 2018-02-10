@@ -6,7 +6,7 @@
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
             <p class="card-text">
-              <doughnut-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></doughnut-chart>
+              <doughnut-chart :data="datacollection" :options="{responsive: true, maintainAspectRatio: false}"></doughnut-chart>
             </p>
           </div>
         </div>

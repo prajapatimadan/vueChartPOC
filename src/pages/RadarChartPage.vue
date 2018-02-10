@@ -6,7 +6,7 @@
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
             <p class="card-text">
-              <radar-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></radar-chart>
+              <radar-chart :data="datacollection" :options="{responsive: true, maintainAspectRatio: false}"></radar-chart>
             </p>
           </div>
         </div>

@@ -6,7 +6,7 @@
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
             <p class="card-text">
-              <polar-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></polar-chart>
+              <polar-chart :data="datacollection" :options="{responsive: true, maintainAspectRatio: false}"></polar-chart>
             </p>
           </div>
         </div>

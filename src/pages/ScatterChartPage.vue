@@ -6,7 +6,7 @@
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
             <p class="card-text">
-              <scatter-chart :data="datacollection" :options="{responsive: false, maintainAspectRatio: false}"></scatter-chart>
+              <scatter-chart :data="datacollection" :options="{responsive: true, maintainAspectRatio: false}"></scatter-chart>
             </p>
           </div>
         </div>
