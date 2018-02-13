@@ -26,5 +26,14 @@ npm run e2e
 # run all tests
 npm test
 ```
+## Dependencies
+Webpack (v2.3) is a bundler, which combines the various JavaScript, CSS, HTML (and other) files and makes them ready to be handled by the client.
+Babel (v6.22) is a compiler for ECMAScript 6 to ECMAScript 5. These are different JavaScript standards and currently browsers are not able to understand all of ECMAScript 6 and so it needs to be converted.
 
+## Testing Dependencies
+Karma (v1.4) is a test runner, which spawns a web server with your project's application code inside and executes tests against it.
+Mocha (v3.2) is a testing framework for JavaScript.
+Chai (v3.5) is an assertion library which can be used with Mocha.
+
+```
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

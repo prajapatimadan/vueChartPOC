@@ -105,5 +105,18 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prajapatimadan/vueChartPOC.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prajapatimadan/vueChartPOC/issues"
+  },
+  "homepage": "https://github.com/prajapatimadan/vueChartPOC#readme"
 }
