@@ -5,19 +5,21 @@
       <div class="card">
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
-            <p class="card-text">
+            <p class="card-text" v-if="datacollection">
               <bar-chart :data="datacollection" :options="{responsive: true, maintainAspectRatio: false}"></bar-chart>
             </p>
           </div>
         </div>
     </div>
   </div>
+  <div class="row" v-if="errors">{{errors}}</div>
   </div>
 </template>
 
 <script>
 
 import BarChart from '@/components/BarChart';
+import chartService from '@/services/ChartService';
 
 export default {
   name: 'MixedChartPage',
@@ -26,24 +28,31 @@ export default {
   data() {
     return {
       title: "Mixed Chart",
-      datacollection: {
-        datasets: [
-          {
-            label: 'GitHub Commits',
-            backgroundColor: '#f87979',
-            data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
-          },
-          {
-            label: 'GitHub Chekout',
-            backgroundColor: '#fCC550',
-            data: [12, 39, 10, 40, 20, 40, 39, 20, 12, 11, 80, 40],
-            type: 'line'
-          }
-        ],
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-      }
+      datacollection: undefined,
+      errors: undefined
     };
+  },
+  props: {
+    chartService: {
+      default: chartService
+    }
+  },
+  methods: {
+    getData() {
+      var self = this;
+      self.chartService.getMixedChartData().then(data => {
+         console.log(data);
+         self.datacollection = data;
+      },
+      function(error) {
+        self.errors = error;
+      });
+    }
+  },
+  mounted: function () {
+    this.getData();
   }
+
 };
 </script>
 

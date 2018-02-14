@@ -5,70 +5,49 @@
         <div class="card">
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
-            <p class="card-text">
+            <p class="card-text" v-if="datacollection">
               <scatter-chart :data="datacollection" :options="{responsive: true, maintainAspectRatio: false}"></scatter-chart>
             </p>
           </div>
         </div>
       </div>
     </div>
+    <div class="row" v-if="errors">{{errors}}</div>
   </div>
 </template>
 
 <script>
 import ScatterChart from '@/components/ScatterChart';
-
+import chartService from '@/services/ChartService';
 export default {
   name: 'ScatterChartPage',
   components: { ScatterChart },
   data() {
     return {
       title: "Scatter Chart",
-      datacollection: {
-        datasets: [
-          {
-            label: 'Product 1',
-            backgroundColor: "#9966FF",
-            hoverBackgroundColor: "#000000",
-            hoverBorderColor: "#9966FF",
-            hoverBorderWidth: 5,
-            hoverRadius: 5,
-            data: [{
-              x: 20,
-              y: 25
-            },
-            {
-              x: 40,
-              y: 10
-            },
-            {
-              x: 30,
-              y: 22
-            }]
-          },
-          {
-            label: 'Product 2',
-            backgroundColor: 'rgba(255,99,132,0.2)',
-            hoverBackgroundColor: 'rgba(255,99,100,0.5)',
-            hoverBorderColor: 'rgba(255,99,132,0.5)',
-            hoverBorderWidth: 5,
-            hoverRadius: 5,
-            data: [{
-              x: 10,
-              y: 30
-            },
-            {
-              x: 20,
-              y: 20
-            },
-            {
-              x: 15,
-              y: 8
-            }]
-          }
-        ]
-      }
+      datacollection: undefined,
+      errors: undefined
     };
+  },
+  props: {
+    chartService: {
+      default: chartService
+    }
+  },
+  methods: {
+    getData() {
+      var self = this;
+      self.chartService.getBubbleChartData().then(data => {
+         console.log(data);
+         self.datacollection = data;
+      },
+      function(error) {
+        self.errors = error;
+      });
+    }
+  },
+  mounted: function () {
+    this.getData();
   }
 };
 </script>

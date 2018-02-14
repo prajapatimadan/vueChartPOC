@@ -19,7 +19,7 @@
 <script>
 
 import BarChart from '@/components/BarChart';
-import {HTTP} from '@/http-common';
+import chartService from '@/services/ChartService';
 
 export default {
   name: 'BarChartPage',
@@ -31,31 +31,26 @@ export default {
       errors: undefined
     };
   },
+  props: {
+    chartService: {
+      default: chartService
+    }
+  },
   methods: {
     getData() {
       var self = this;
-      HTTP.get('gitdata.json',{
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+      self.chartService.getChartData().then(data => {
+         console.log(data);
+         self.datacollection = data;
       },
-      dataType: 'json',
-      mode: 'no-cors'
-    }).then(response => {
-        //(this.datacollection = response.data).bind(this);
-        const data = JSON.parse(JSON.stringify(response.data));
-        self.datacollection = data;
-        console.log("-------1111---- ", data.datasets[0]);
-      })
-      .catch(e => {
-        (this.errors).bind(this).push(e);
+      function(error) {
+        self.errors = error;
       });
     }
   },
   mounted: function () {
-      this.getData();
-    console.log(this.datacollection);
-    }
+    this.getData();
+  }
 
 };
 </script>

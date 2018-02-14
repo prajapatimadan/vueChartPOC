@@ -5,18 +5,20 @@
         <div class="card">
           <div class="card-block">
             <h4 class="card-title">{{title}}</h4>
-            <p class="card-text">
+            <p class="card-text" v-if="datacollection">
               <radar-chart :data="datacollection" :options="{responsive: true, maintainAspectRatio: false}"></radar-chart>
             </p>
           </div>
         </div>
       </div>
     </div>
+    <div class="row" v-if="errors">{{errors}}</div>
   </div>
 </template>
 
 <script>
 import RadarChart from '@/components/RadarChart';
+import chartService from '@/services/ChartService';
 
 export default {
   name: 'RadarChartPage',
@@ -24,32 +26,33 @@ export default {
   data() {
     return {
       title: "Radar Chart",
-      datacollection: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        datasets: [
-          {
-            label: 'GitHub Commits',
-            backgroundColor: 'rgba(179,181,198,0.2)',
-            borderColor: 'rgba(179,181,198,1)',
-            pointBackgroundColor: 'rgba(179,181,198,1)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(179,181,198,1)',
-            data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
-          },
-          {
-            label: 'GitHub Checkout',
-            backgroundColor: 'rgba(255,99,132,0.2)',
-            borderColor: 'rgba(255,99,132,1)',
-            pointBackgroundColor: 'rgba(255,99,132,1)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [39, 10, 40, 40, 20, 12, 39, 20, 12, 11, 80, 40]
-          }
-        ]
-      }
+      datacollection: undefined,
+      errors: undefined
     };
+  },
+  props: {
+    chartService: {
+      default: chartService
+    }
+  },
+  methods: {
+    getData() {
+      var self = this;
+      self.chartService.getPolarChartData().then(data => {
+         console.log(data);
+         self.datacollection = data;
+         var bcolor = ["#C0CCC0","#E40051"];
+          for(let i=0; i<self.datacollection.datasets.length;i++){
+            self.datacollection.datasets[i].backgroundColor = bcolor[i];
+          }
+      },
+      function(error) {
+        self.errors = error;
+      });
+    }
+  },
+  mounted: function () {
+    this.getData();
   }
 };
 </script>
