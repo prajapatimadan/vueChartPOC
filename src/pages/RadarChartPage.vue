@@ -32,7 +32,7 @@ export default {
   },
   props: {
     chartService: {
-      default: chartService
+      default: ()=>chartService
     }
   },
   methods: {

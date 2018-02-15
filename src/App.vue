@@ -73,4 +73,20 @@ export default {
 .indigo{
   background-color:#95C5C5 !important;
 }
+.dropdown-menu {
+    color: #FFF;
+    background-color: #95c5c5;
+    border: 0px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+}
+.navbar .dropdown-menu a {
+    color: #FFF !important;
+}
+.navbar .dropdown-menu a:hover {
+    color: #000 !important;
+}
+.dropdown-menu .dropdown-item:focus {
+    color: #000 !important;
+    background-color: #CCC;
+}
 </style>
