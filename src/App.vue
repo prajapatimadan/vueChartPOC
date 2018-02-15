@@ -70,4 +70,7 @@ export default {
 .navbar .dropdown-menu a:hover {
   color: inherit !important;
 }
+.indigo{
+  background-color:#95C5C5 !important;
+}
 </style>
