@@ -39,17 +39,20 @@ export default {
   methods: {
     getData() {
       var self = this;
-      self.chartService.getChartData().then(data => {
+      return self.chartService.getChartData().then(data => {
          console.log(data);
          self.datacollection = data;
       },
       function(error) {
+        //console.log(error);
         self.errors = error;
       });
     }
   },
   mounted: function () {
-    this.getData();
+    this.getData().then(()=>{
+      console.log('loaded', this.datacollection);
+    });
   }
 
 };
