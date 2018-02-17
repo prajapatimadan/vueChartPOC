@@ -57,13 +57,14 @@ Karma (v1.4) is a test runner, which spawns a web server with your project's app
 Mocha (v3.2) is a testing framework for JavaScript.
 Chai (v3.5) is an assertion library which can be used with Mocha.
 
-```
+
 ```
 ## Note: 
 Application using Dummy data having *.json files to represent charts as dynamic style. use your one API link with the required json data format response.
 
 Change base url from http-common.js file.
 
+```
 ```
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
